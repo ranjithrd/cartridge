@@ -1,0 +1,31 @@
+#new-row {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	padding: 0.5em 1em;
+	background-color: white;
+	box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+
+	input {
+		border: none !important;
+		font-size: 0.95em;
+		color: gray;
+		&:focus {
+			color: black;
+		}
+	}
+
+	#inp-name {
+		// flex-grow: 5;
+	}
+
+	#inp-due-wrap {
+		// flex-grow: 0;
+		// padding: 1px;
+		// width: fit-content;
+	}
+
+	#inp-due {
+		// width: fit-content;
+	}
+}

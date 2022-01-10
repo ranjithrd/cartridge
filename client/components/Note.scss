@@ -1,0 +1,56 @@
+.note {
+	* {
+		transition: transform 200ms ease-in-out;
+	}
+	.active {
+		&.write {
+			width: 100%;
+		}
+		&.preview {
+			width: 100%;
+		}
+	}
+	.inactive {
+		width: 0;
+		height: 0;
+		padding: 0;
+		&.write {
+			transform: translateX(-125vw);
+		}
+		&.preview {
+			transform: translateX(125vw);
+		}
+	}
+}
+
+.tabs {
+	// margin-bottom: 1em;
+	display: flex;
+	flex-direction: row;
+	gap: 1em;
+	.tab {
+		font-size: 0.9em;
+		padding: 1em;
+	}
+	.t-active {
+		color: green;
+		border-bottom: solid 3px green;
+	}
+}
+
+.tab-view {
+	display: block;
+	gap: 0;
+	padding: 1em;
+	background-color: white;
+	box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+
+textarea {
+	width: 100%;
+	resize: vertical;
+	min-height: 10em;
+	white-space: pre-wrap;
+	font-size: 1.2em;
+	font-family: monospace;
+}

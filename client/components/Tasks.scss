@@ -1,0 +1,15 @@
+#tasks {
+	// border-radius: 5px;
+	width: 100%;
+	box-sizing: border-box;
+	// .task-card {
+	// 	border-top: 1px solid gray;
+	// 	border-width: 80%;
+	// }
+	// .task-card:nth-child(1) {
+	// 	border-top: none;
+	// }
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+}

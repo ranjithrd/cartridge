@@ -1,0 +1,68 @@
+table {
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+th,
+td {
+	text-align: left;
+}
+
+td {
+	padding: 3px 6px;
+}
+
+th {
+	padding: 6px 8px;
+}
+
+#name {
+	width: 60%;
+}
+
+#due {
+	width: 25%;
+}
+
+#complete,
+#delete {
+	width: 7.5%;
+}
+
+#new-row {
+	width: 100%;
+	display: flex;
+	gap: 0.6em;
+
+	#inp-name {
+		width: 100%;
+		padding: 2px;
+	}
+
+	#inp-due {
+		flex: 0;
+		padding: 1px;
+	}
+
+	#inp-name,
+	#inp-due {
+		border-radius: 5px;
+		// border: 1px solid gray;
+	}
+
+	button {
+		flex: 1;
+		padding: 2px;
+		background: none;
+		border: none;
+		border-radius: 5px;
+		&[type="submit"] {
+			background-color: green;
+			padding: 0 8px;
+			color: white;
+		}
+		&[type="reset"] {
+			@extend button, .delete;
+		}
+	}
+}

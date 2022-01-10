@@ -1,0 +1,77 @@
+$primary: rgb(21, 9, 128);
+
+// GENERAL
+
+.strikethrough {
+	text-decoration: line-through;
+	button {
+		text-decoration: none;
+		color: black;
+	}
+}
+
+.red {
+	color: red;
+}
+
+.green {
+	color: green;
+}
+
+p {
+	line-height: 1.5em;
+}
+
+a,
+button {
+	cursor: pointer;
+}
+
+// BUTTON + FORM
+
+button.delete {
+	background: none;
+	color: red;
+	box-shadow: none;
+	border: none;
+}
+
+#complete,
+input[type="checkbox"],
+.check {
+	width: fit-content;
+}
+
+button.text {
+	background: none;
+	box-shadow: none;
+	border: none;
+	color: $primary;
+}
+
+// LINK
+
+a {
+	text-decoration: none;
+	color: inherit;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.small {
+	font-size: 80%;
+}
+
+.capital {
+	text-transform: uppercase;
+}
+
+.gray {
+	color: gray;
+}
+
+.disabled {
+	@extend .small, .capital, .gray;
+}

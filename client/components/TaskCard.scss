@@ -1,0 +1,87 @@
+$colorRed: red;
+$colorBlue: blue;
+$colorCyan: cyan;
+$colorGray: gray;
+
+.task-card {
+	padding: 0.5em 1em;
+	background-color: white;
+	transition: height 300ms ease-in-out;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: center;
+	box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+
+	button.material-icons {
+		font-size: 19px;
+	}
+
+	.main-contents {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.row {
+		display: flex;
+		flex-direction: row;
+		justify-content: start;
+		gap: 1em;
+	}
+
+	.grow {
+		flex: 1;
+	}
+
+	.expanded-contents {
+		transition: height 300ms ease-in-out;
+		box-sizing: border-box;
+	}
+
+	button {
+		font-size: 1em;
+	}
+
+	&.hidden {
+		height: 2.5em;
+		.expanded-contents {
+			height: 0;
+			clear: both;
+			visibility: hidden;
+		}
+	}
+
+	&.expanded {
+		.expanded-contents {
+			height: 4em;
+		}
+		height: 5.5em;
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		justify-content: center;
+	}
+
+	&.completed {
+		* {
+			color: gray;
+		}
+		p {
+			text-decoration: line-through;
+		}
+	}
+}
+
+.red {
+	color: $colorRed;
+}
+.blue {
+	color: $colorBlue;
+}
+.cyan {
+	color: $colorCyan;
+}
+.gray {
+	color: $colorGray;
+}

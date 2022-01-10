@@ -14,3 +14,5 @@ start:
         - server start
 
 debug: vite & nodemon server/start.js
+
+mongo: cd mongodata && mongod --dbpath .
