@@ -5,7 +5,7 @@ server start: node server/start.js
 server debug: nodemon server/start.js
 
 client debug: vite
-client build: vite build --mode production
+client build: vite build --mode production && echo '/* /index.html  200' > dist/_redirects
 client preview: vite preview
 
 start:
