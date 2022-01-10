@@ -1,1 +1,1 @@
-# Loggy
+# Cartridge

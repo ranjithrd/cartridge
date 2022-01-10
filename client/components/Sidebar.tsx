@@ -34,7 +34,7 @@ function Sidebar() {
 				</button>
 			</div>
 			<div id="menu-content" className={hidden ? "hidden" : "active"}>
-				<h1>Devy</h1>
+				<h1>Cartridge</h1>
 				<div className="spacer"></div>
 				<div className="spacer"></div>
 				<div id="menu-links">

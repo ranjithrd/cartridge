@@ -9,6 +9,8 @@ import CryptoJS from "crypto-js"
 import Sidebar from "./components/Sidebar"
 import List from "./pages/List"
 import { debounce } from "lodash"
+import { initializeApp } from "firebase/app"
+import { getAnalytics } from "firebase/analytics"
 
 const cryptoOptions = {
 	format: CryptoJS.format.OpenSSL,
@@ -18,6 +20,20 @@ function App() {
 	const liveData = useData()
 
 	useEffect(() => {
+		const firebaseConfig = {
+			apiKey: "AIzaSyDB6pki6IhuNoJ0_6iFUU_h4CEAX2MCboA",
+			authDomain: "cartridge-3ba25.firebaseapp.com",
+			projectId: "cartridge-3ba25",
+			storageBucket: "cartridge-3ba25.appspot.com",
+			messagingSenderId: "149001637583",
+			appId: "1:149001637583:web:de45029f1e912e804f71ba",
+			measurementId: "G-MCVTC9G99F",
+		}
+
+		// Initialize Firebase
+		const app = initializeApp(firebaseConfig)
+		const analytics = getAnalytics(app)
+
 		if (
 			localStorage.getItem("loaded") === "true" &&
 			localStorage.getItem("aSj26BwZ5Hb7j2aXhzmW9g9ebKuQUDgd")
