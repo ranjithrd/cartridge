@@ -9,8 +9,13 @@ function Sidebar() {
 
 	const [hidden, setHidden] = useState(true)
 	const [newList, setNewList] = useState("")
+	const [listErr, setListErr] = useState("")
 
 	function handleCreate() {
+		if (newList === "") {
+			setListErr("Enter a name")
+			return
+		}
 		const id = ProjectService.createList(newList)
 		if (id) {
 			history.push(`/${id}`)
@@ -40,7 +45,7 @@ function Sidebar() {
 				<div id="menu-links">
 					<Link to="/">Home</Link>
 					<Link to="/tasks">Tasks</Link>
-					<Link to="/docs">Docs</Link>
+					{/* <Link to="/docs">Docs</Link> */}
 					{data.project.lists.map((list) => (
 						<Link to={`/${list.id}`} key={list.id}>
 							{list.title}
@@ -56,6 +61,7 @@ function Sidebar() {
 						<button className="green" onClick={handleCreate}>
 							Create
 						</button>
+						<p className="small red">{listErr}</p>
 					</div>
 				</div>
 			</div>

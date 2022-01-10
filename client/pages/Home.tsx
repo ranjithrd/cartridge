@@ -41,8 +41,21 @@ function Home() {
 		(a, b) => moment(a.task.due).valueOf() - moment(b.task.due).valueOf()
 	)
 
+	let greeting = "Welcome back!"
+	const hour = moment().get("hour")
+	console.log(hour)
+
+	if (hour < 12) {
+		greeting = "Good morning!"
+	} else if (hour < 16) {
+		greeting = "Good afternoon!"
+	} else {
+		greeting = "Good evening!"
+	}
+
 	return (
 		<div id="main">
+			<h1>{greeting}</h1>
 			{overdueTasks.length > 0 ? (
 				<div className="list">
 					<p className="small capital gray">Overdue Tasks</p>

@@ -8,6 +8,7 @@ import { data, useData } from "./data/data"
 import CryptoJS from "crypto-js"
 import Sidebar from "./components/Sidebar"
 import List from "./pages/List"
+import AllTasks from "./pages/AllTasks"
 import { debounce } from "lodash"
 import { initializeApp } from "firebase/app"
 import { getAnalytics } from "firebase/analytics"
@@ -79,6 +80,7 @@ function App() {
 				<BrowserRouter>
 					{data.loggedIn ? <Sidebar /> : null}
 					<Switch>
+						<Route path="/tasks" children={<AllTasks />} />
 						<Route path="/:id" children={<List />} />
 						<Route path="/" children={<Home />} />
 					</Switch>

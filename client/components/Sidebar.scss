@@ -42,6 +42,9 @@
 				width: 0;
 				padding-left: 0;
 				padding-right: 0;
+				* {
+					opacity: 0;
+				}
 			}
 			&.active {
 				position: fixed;
@@ -84,4 +87,9 @@
 		font-size: 0.8em;
 		font-weight: bold;
 	}
+}
+
+h1 {
+	position: relative;
+	z-index: 0;
 }
