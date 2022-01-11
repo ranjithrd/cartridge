@@ -13,6 +13,8 @@ $colorGray: gray;
 	justify-content: center;
 	box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 
+	z-index: 0;
+
 	button.material-icons {
 		font-size: 19px;
 	}
@@ -84,4 +86,13 @@ $colorGray: gray;
 }
 .gray {
 	color: $colorGray;
+}
+
+.react-datepicker {
+	// position: absolute !important;
+	z-index: 100000;
+	* {
+		// position: absolute !important;
+		// z-index: 100000000;
+	}
 }

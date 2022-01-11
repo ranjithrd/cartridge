@@ -1,11 +1,12 @@
 import React, { useState } from "react"
 import { Link, useHistory } from "react-router-dom"
-import { data } from "../data/data"
+import { useData } from "../data/data"
 import { ProjectService } from "../services/ProjectService"
 import "./Sidebar.scss"
 
 function Sidebar() {
 	const history = useHistory()
+	const liveData = useData()
 
 	const [hidden, setHidden] = useState(true)
 	const [newList, setNewList] = useState("")
@@ -56,7 +57,7 @@ function Sidebar() {
 					</Link>
 					{/* <Link to="/docs">Docs</Link> */}
 					<div />
-					{data.project.lists.map((list) => (
+					{liveData.project.lists.map((list) => (
 						<Link
 							to={`/${list.id}`}
 							key={list.id}

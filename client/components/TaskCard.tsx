@@ -95,8 +95,10 @@ function TaskCard({ task, list }: { task: Task; list: string; key: any }) {
 							onChange={handleDueChange}
 							startOpen={true}
 							id="inp-due"
-							customInput={getDue()[1]}
+							customInput={<p id={task.id}>{getDue()[1]}</p>}
 							minDate={moment().startOf("day").toDate()}
+							// withPortal={true}
+							portalId={task.id}
 						/>
 					) : (
 						<button onClick={handleClickDue}>{getDue()[1]}</button>

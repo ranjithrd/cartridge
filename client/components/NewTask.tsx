@@ -12,7 +12,7 @@ function NewTask({ listId }) {
 	// function handleCancel() {}
 
 	function handleCreate() {
-		if (newName === "") return
+		if (newName.replace(/ /g, "") === "") return
 		TaskService.createTask(listId!, newName, newDue)
 		setNewName("")
 		setNewDue(moment().toISOString())
@@ -47,6 +47,10 @@ function NewTask({ listId }) {
 					customInput={
 						<button>{moment(newDue).format("D MMM YYYY")}</button>
 					}
+					popperProps={{
+						positionFixed: true,
+						strategy: "fixed",
+					}}
 				/>
 			</div>
 

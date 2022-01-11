@@ -85,6 +85,9 @@
 
 	input {
 		font-size: 1em;
+		&:focus {
+			outline: none;
+		}
 	}
 	button {
 		text-align: left;
