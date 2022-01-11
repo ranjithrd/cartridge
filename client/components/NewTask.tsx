@@ -12,6 +12,7 @@ function NewTask({ listId }) {
 	// function handleCancel() {}
 
 	function handleCreate() {
+		if (newName === "") return
 		TaskService.createTask(listId!, newName, newDue)
 		setNewName("")
 		setNewDue(moment().toISOString())
@@ -23,6 +24,8 @@ function NewTask({ listId }) {
 			handleCreate()
 		}
 	}
+
+	const showButton = newName !== ""
 
 	return (
 		<div id="new-row" onKeyDown={handleKey}>
@@ -41,11 +44,17 @@ function NewTask({ listId }) {
 					onChange={(date) => setNewDue(moment(date).toISOString())}
 					id="inp-due"
 					minDate={moment().startOf("day").toDate()}
-					// customInput={<p>{moment(newDue).format("D MMM")}</p>}
+					customInput={
+						<button>{moment(newDue).format("D MMM YYYY")}</button>
+					}
 				/>
 			</div>
 
-			<button type="submit" onClick={handleCreate}>
+			<button
+				type="submit"
+				onClick={handleCreate}
+				className={showButton ? "" : "button-hide"}
+			>
 				Create
 			</button>
 

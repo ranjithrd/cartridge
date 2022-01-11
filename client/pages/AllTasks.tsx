@@ -12,6 +12,7 @@ function AllTasks() {
 			<h1>All Tasks</h1>
 			{liveData.project.lists.map((list) => (
 				<div>
+					<div className="spacer"></div>
 					<p className="small capital gray">{list.title}</p>
 					{TaskService.sortTasks(
 						list.children.filter(
@@ -36,7 +37,6 @@ function AllTasks() {
 							<p className="small">No tasks yet! Add one below</p>
                             <div className="spacer-small"></div>
 							<NewTask listId={list.id} />
-							<div className="spacer"></div>
 						</>
 					)}
 				</div>

@@ -12,8 +12,16 @@ function List() {
 	const { id } = useParams<{ id: string }>()
 	const history = useHistory()
 	const data = useData()
+	const [show, setShow] = useState(false)
 
 	const list = data.project.lists.filter((e) => e.id === id)[0]
+
+	useEffect(() => {
+		setShow(false)
+		setTimeout(() => {
+			setShow(true)
+		}, 100)
+	}, [id])
 
 	if (!list) {
 		return (
@@ -49,7 +57,7 @@ function List() {
 	)
 
 	return (
-		<div id="main">
+		<div id="main" className={show ? "list-page" : "page-hide"}>
 			<ContentEditable
 				html={title}
 				onChange={(e) => setTitle(e.target.value)}

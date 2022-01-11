@@ -6,7 +6,8 @@
 	background-color: white;
 	padding: 6em 2em;
 	box-sizing: border-box;
-	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+	box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+	// box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 #parent {
@@ -21,6 +22,9 @@
 #sidebar {
 	flex: 3;
 	@include breakpoint(md, max) {
+		position: absolute;
+		z-index: 10000;
+
 		#menu-content.hidden {
 			width: 0;
 		}
@@ -47,8 +51,8 @@
 				}
 			}
 			&.active {
-				position: fixed;
 				width: 80vw;
+				opacity: 1;
 			}
 		}
 
@@ -86,7 +90,12 @@
 		text-align: left;
 		font-size: 0.8em;
 		font-weight: bold;
+		transition: opacity 300ms ease-in-out;
 	}
+}
+
+.hide {
+	opacity: 0;
 }
 
 h1 {

@@ -83,6 +83,7 @@ export const data = proxy({
 	password: "",
 	loggedIn: true,
 	loaded: false,
+	customCss: "",
 })
 
 export const useData = () => useSnapshot(data)

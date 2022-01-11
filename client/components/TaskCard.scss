@@ -31,7 +31,7 @@ $colorGray: gray;
 	}
 
 	.grow {
-		flex: 1;
+		// flex: 1;
 	}
 
 	.expanded-contents {
@@ -44,7 +44,7 @@ $colorGray: gray;
 	}
 
 	&.hidden {
-		height: 2.5em;
+		// height: 2.5em;
 		.expanded-contents {
 			height: 0;
 			clear: both;

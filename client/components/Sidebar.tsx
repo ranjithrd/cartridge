@@ -31,6 +31,8 @@ function Sidebar() {
 		}
 	}
 
+	const showButton = newList !== ""
+
 	return (
 		<aside id="sidebar">
 			<div id="menu-button">
@@ -43,11 +45,23 @@ function Sidebar() {
 				<div className="spacer"></div>
 				<div className="spacer"></div>
 				<div id="menu-links">
-					<Link to="/">Home</Link>
-					<Link to="/tasks">Tasks</Link>
+					<Link to="/" onClick={() => setHidden(true)}>
+						Home
+					</Link>
+					<Link to="/tasks" onClick={() => setHidden(true)}>
+						Tasks
+					</Link>
+					<Link to="/settings" onClick={() => setHidden(true)}>
+						Settings
+					</Link>
 					{/* <Link to="/docs">Docs</Link> */}
+					<div />
 					{data.project.lists.map((list) => (
-						<Link to={`/${list.id}`} key={list.id}>
+						<Link
+							to={`/${list.id}`}
+							key={list.id}
+							onClick={() => setHidden(true)}
+						>
 							{list.title}
 						</Link>
 					))}
@@ -58,7 +72,10 @@ function Sidebar() {
 							value={newList}
 							onChange={(e) => setNewList(e.target.value)}
 						/>
-						<button className="green" onClick={handleCreate}>
+						<button
+							className={showButton ? "green" : "hide"}
+							onClick={handleCreate}
+						>
 							Create
 						</button>
 						<p className="small red">{listErr}</p>

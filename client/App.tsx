@@ -12,6 +12,7 @@ import AllTasks from "./pages/AllTasks"
 import { debounce } from "lodash"
 import { initializeApp } from "firebase/app"
 import { getAnalytics } from "firebase/analytics"
+import Settings from "./pages/Settings"
 
 const cryptoOptions = {
 	format: CryptoJS.format.OpenSSL,
@@ -34,6 +35,10 @@ function App() {
 		// Initialize Firebase
 		const app = initializeApp(firebaseConfig)
 		const analytics = getAnalytics(app)
+
+		if (localStorage.getItem("customCss")) {
+			data.customCss = localStorage.getItem("customCss")
+		}
 
 		if (
 			localStorage.getItem("loaded") === "true" &&
@@ -59,6 +64,7 @@ function App() {
 				).toString(CryptoJS.format.OpenSSL)
 				localStorage.setItem("aSj26BwZ5Hb7j2aXhzmW9g9ebKuQUDgd", encLog)
 				localStorage.setItem("loaded", "true")
+				localStorage.setItem("customCss", data.customCss)
 				// data.loaded = true
 			}, 300)
 		)
@@ -81,11 +87,13 @@ function App() {
 					{data.loggedIn ? <Sidebar /> : null}
 					<Switch>
 						<Route path="/tasks" children={<AllTasks />} />
-						<Route path="/:id" children={<List />} />
+						<Route path="/settings" children={<Settings />} />
+						<Route path="/:id" component={List} />
 						<Route path="/" children={<Home />} />
 					</Switch>
 				</BrowserRouter>
 			</SWRConfig>
+			<style>{liveData.customCss}</style>
 		</div>
 	)
 }

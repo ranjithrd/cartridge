@@ -14,13 +14,16 @@ export class TaskService {
 	}
 
 	static humanizeDueDate(task: Task): IDue {
-		const d = moment(task.due)
+		if (task.completed !== undefined && task.completed)
+			return ["completed", "Unknown"]
 
 		if (task.completed) {
 			return ["completed", "Completed"]
 		}
 
-		if (d.isBefore(moment(), "year")) {
+		const d = moment(task.due)
+
+		if (d.isBefore(moment(), "day")) {
 			return ["overdue", "Overdue"]
 		}
 		if (moment().isSame(d, "day")) {
@@ -32,6 +35,7 @@ export class TaskService {
 		if (d.isAfter(moment().add({ days: 1 }))) {
 			return ["future", `Due on ${d.format("D MMM")}`]
 		}
+
 	}
 
 	static createTask(listId: string, name: string, due: string) {
